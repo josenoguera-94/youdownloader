@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="row">
+    <div class="col-md-6 offset-md-3">
+        {% with errors = get_flashed_messages(category_filter=["error"])  %}
+        {% if errors %}
+        {% for message in errors %}
+        <div class="alert alert-dismissible alert-danger">
+            {{ message }}
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+
+        {% with success = get_flashed_messages(category_filter=["success"])  %}
+        {% if success %}
+        {% for message in success %}
+        <div class="alert alert-dismissible alert-success">
+            {{ message }}
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+        <div class="card text-white bg-primary mb-3">
+            <div class="card-header">YouDownloader</div>
+            <div class="card-body">
+                {% if result %}
+                <div>
+                    <form action="{{url_for('download')}}" method="post">
+                        <input
+                            input
+                            type="text"
+                            name="url"
+                            placeholder="Copie la url a descargar..."
+                            value="{{result[3]}}"
+                            class="w-100"
+                        >
+                        <button class="btn btn-primary btn-block mt-3">Comenzar</button>
+                    </form>
+                </div>
+                <div class="card text-white bg-success mb-3 mt-3">
+                    <div class="card-body">
+                        <h4 class="card-title">{{result[2][0]}}</h4>
+                        <p class="card-text">Autor: {{result[2][1]}}</p>
+                        <p class="card-text">Duración: {{result[2][2]}}</p>
+                    </div>
+                </div>
+                <div>
+                    <ul class="nav nav-tabs mt-3">
+                        <li class="nav-item">
+                            <a class="nav-link active" data-toggle="tab" href="#home">Video</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#profile">Audio</a>
+                        </li>
+                    </ul>
+                </div>
+                <div id="myTabContent" class="tab-content">
+                    <div class="tab-pane fade active show" id="home">
+                        {% include 'items/video_table.html' %}
+                    </div>
+                    <div class="tab-pane fade" id="profile">
+                        {% include 'items/audio_table.html' %}
+                    </div>
+                </div>
+                {% else %}
+                <div>
+                    <form action="{{url_for('download')}}" method="post">
+                        <input
+                            input
+                            type="text"
+                            name="url"
+                            placeholder="Copie la url a descargar..."
+                            class="w-100"
+                        >
+                        <button class="btn btn-primary btn-block mt-3">Comenzar</button>
+                    </form>
+                </div>
+                {% include 'items/notes.html' %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

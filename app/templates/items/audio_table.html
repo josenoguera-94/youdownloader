@@ -1,0 +1,36 @@
+<div>
+    <table class="table table-striped table-hover table-bordered table-md bg-white">
+        <thead>
+            <tr>
+                <td>
+                    <strong>Tipo</strong>
+                </td>
+                <td>
+                    <strong>Resolución</strong>
+                </td>
+                <td>
+                    <strong>Tamaño</strong>
+                </td>
+                <td>
+                    <strong>Formato</strong>
+                </td>
+                <td>
+                    <strong>Opciones</strong>
+                </td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for audio in result[1] %}
+            <tr>
+                <td>{{audio.1}}</td>
+                <td>{{audio.2}}</td>
+                <td>{{audio.3}} MB</td>
+                <td>{{audio.4}}</td>
+                <td>
+                    <a href="/download/{{result[3][32:]}}&{{audio.0}}" class="btn btn-success">Descargar</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="author" content="Jose Noguera">
+        <meta name="description" content="YouDownloader">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie-edge">
+        <meta name="MobileOptimized" content="width">
+        <meta name="HandheldFriendly" content="true">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        <link rel="stylesheet" href="{{url_for('static', filename='css/bootswatch/bootswatch.css')}}">
+        <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+        <title></title>
+    </head>
+    <body>
+        <nav class="navbar navbar-dark bg-primary">
+            <a class="navbar-brand" href="/">YouDownloader</a>
+        </nav>
+        <div class="container pt-5">
+            {% block body %}
+        {% endblock %}
+        </div>
+        <script src="{{url_for('static', filename='jquery/jquery-3.5.1.min.js')}}"></script>
+        <script src="{{url_for('static', filename='bootstrap4/js/popper.min.js')}}"></script>
+        <script src="{{url_for('static', filename='bootstrap4/js/bootstrap.min.js')}}"></script>
+    </body>
+</html>
