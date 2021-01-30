@@ -1,6 +1,6 @@
 # **YouDownloader**
 
- Es una app echa en flask que te permite descargar audios y videos desde YouTube en formato mp3, webm y mp4, en calidad HD.
+ Es una app hecha en flask que te permite descargar audios y videos desde YouTube en formato mp3, webm y mp4, en calidad HD.
 
  ###  **Librerías:**
 ~~~
