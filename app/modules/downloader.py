@@ -30,7 +30,7 @@ def info_video(url):
 
     # VIDEO
     video = (
-        yt.streams.filter(adaptive=True, subtype="mp4")
+        yt.streams.filter(progressive=True, subtype="mp4")
         .order_by("resolution")
         .desc()
         .all()
